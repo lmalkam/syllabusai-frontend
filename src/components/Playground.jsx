@@ -15,6 +15,7 @@ export default function Playground() {
 
 
     const handleNotesRequest = () => {
+
         setisLoading(true)
     
         var myHeaders = new Headers();
@@ -78,6 +79,36 @@ export default function Playground() {
 
     }
 
+    const handleMapRequest = () => {
+        setisLoading(true)
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "syllabus": `${syllabusInput}`,
+            "user_id": `${user.id}`
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        fetch("https://syllabus-ai.onrender.com/map", requestOptions)
+            .then(response => response.json()) // Parse the response as JSON
+            .then(data => {
+                const content = data.data; // Extract content from the "data" field
+                console.log(content);
+                setContent(content); // Set the content value to the variable
+                setisLoading(false);
+  
+            })
+            .catch(error => console.log('error', error));
+
+    }
+
     const handleSyllabusChange = (e) => {
         const inputValue = e.target.value;
 
@@ -120,7 +151,11 @@ export default function Playground() {
                         <NotesIcon />
                         Generate Notes
                     </button>
-
+                    <button className="btn btn-active px-2"
+                        onClick={handleMapRequest}>
+                        <NotesIcon />
+                        Generate MindMap
+                    </button>
 
                 </div>
 
