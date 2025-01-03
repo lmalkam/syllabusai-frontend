@@ -34,6 +34,7 @@ export default function Drawer({children}) {
       <li><a onClick={() => navigate('/answer')}><AnswerIcon/>Generate Answer</a></li>
       <li><a onClick={() => navigate('/analyse')}><AnalyseIcon/>Analyse Syllabus</a></li>
       <li><a onClick={() => navigate('/history')}><Historyicon/>History</a></li>
+      <li><a onClick={() => navigate('/schedule')}><Historyicon/>Schedule</a></li>
       <div className='flex flex-col mt-auto gap-3 p-4'>
       <div className='mt-auto flex flex-row gap-3 items-center btn btn-outline justify-start'><UserButton/>{user.firstName}</div>
       <a className='flex flex-row p-3 gap-2 btn btn-accent mt-auto'><SignOutIcon/><SignOutButton afterSignOutUrl="/" /></a>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import  {  useState } from 'react'
 import NotesIcon from './NotesIcon'
 import TestIcon from './TestIcon'
 import LoadingBar from './LoadingBar'
@@ -32,7 +32,7 @@ export default function Playground() {
             body: raw,
             redirect: 'follow'
         };
-        fetch("https://syllabus-ai.onrender.com/notes", requestOptions)
+        fetch("https://backend-ai-hoav.onrender.com/notes", requestOptions)
             .then(response => response.json()) // Parse the response as JSON
             .then(data => {
                 const content = data.data; // Extract content from the "data" field
@@ -96,14 +96,13 @@ export default function Playground() {
             body: raw,
             redirect: 'follow'
         };
-        fetch("https://syllabus-ai.onrender.com/map", requestOptions)
+        fetch("https://backend-ai-hoav.onrender.com/map", requestOptions)
             .then(response => response.json()) // Parse the response as JSON
             .then(data => {
                 const content = data.data; // Extract content from the "data" field
                 console.log(content);
                 setContent(content); // Set the content value to the variable
                 setisLoading(false);
-  
             })
             .catch(error => console.log('error', error));
 

@@ -10,13 +10,15 @@ export default function NavBar({ children }) {
   const navigate = useNavigate();
   const [currUser, setCurrUser] = useState({});
 
+  const PUBLIC_SITE_LINK = import.meta.env.PUBLIC_SITE_LINK
+
   useEffect(() => {
     handleFetchUser(); // Fetch user when the component mounts
   }, []);
 
   const handleFetchUser = () => {
     // Assuming user.id is available from Clerk
-    fetch(`https://syllabus-ai.onrender.com/user/?user_id=${user.id}`)
+    fetch(PUBLIC_SITE_LINK + `/user/?user_id=${user.id}`)
       .then(response => response.json())
       .then(data => {
         setCurrUser(data.user);

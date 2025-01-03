@@ -3,7 +3,7 @@ import Playground from './components/Playground'
 import HomePage from './pages/Home';
 import HistoryPage from './pages/HistoryPage'
 import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
-
+import SchedulePage from './pages/SchedulePage';
 import {
   createBrowserRouter,
   createHashRouter,
@@ -33,6 +33,10 @@ const router = createHashRouter([
   {
     path: "/analyse",
     element: <AnalysePage/>,
+  },
+  {
+    path: "/schedule",
+    element: <SchedulePage/>,
   },
   {
   path:"*",
